@@ -22,7 +22,9 @@ export default function Bookings() {
   const fetchBookings = async () => {
     try {
       setIsLoading(true);
-      const res = await axios.get("http://localhost:5000/api/bookings");
+      const res = await axios.get(
+        "https://diabetes-crm.onrender.com/api/bookings"
+      );
       setBookings(res.data);
     } catch (error) {
       console.error("Error fetching data", error);
@@ -74,7 +76,9 @@ export default function Bookings() {
       return;
 
     try {
-      await axios.delete(`http://localhost:5000/api/bookings/${id}`);
+      await axios.delete(
+        `https://diabetes-crm.onrender.com/api/bookings/${id}`
+      );
       setBookings(bookings.filter((booking) => booking._id !== id));
     } catch (error) {
       console.error("Error deleting booking", error);
